@@ -1,4 +1,5 @@
 <?php
+require_once '../Core/Model.php';
 /**
  * * Route Model
  * this class handles all the database operations related to the route table.
@@ -24,7 +25,7 @@ class Route extends Model
 
     public function getRouteById($id)
     {
-        return $this->getById($this->table, $id);
+        return $this->getById($this->table, $id, "routeId");
     }
 
     public function addRoute($data)
@@ -34,11 +35,11 @@ class Route extends Model
 
     public function updateRoute($id, $data)
     {
-        return $this->update($this->table, $data, $id);
+        return $this->update($this->table, $data, "routeId", $id);
     }
 
     public function deleteRoute($id)
     {
-        return $this->delete($this->table, $id);
+        return $this->delete($this->table, $id, "routeId");
     }
 }

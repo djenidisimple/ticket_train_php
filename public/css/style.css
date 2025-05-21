@@ -1,0 +1,252 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background: #f0f0f0;
+}
+div label {
+    font-size: 16px;
+}
+.text-show {
+    font-size: 34px;
+    color: black;
+    font-weight: bold;
+}
+.description {
+    font-size: 18px;
+    color: gray;
+}
+.card-dsh {
+    width: 100%;
+    height: 16vh;
+}
+.t-m {
+    width: 250px;
+    height: 160px;
+}
+.box
+{
+    background: white;
+    border: 1px solid #ccc;
+    margin: 15px;
+    padding: 5px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 70px;
+}
+.text-white{
+    color: white;
+}
+.nav-left
+{
+    position: fixed;
+    width: auto;
+    height: 100%;
+    top: 0;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    background-color: white;
+}
+nav div
+{
+    width: 150px;
+    height: 38px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    background-size: 50%;
+    font-size: 12px;
+    margin: 15px;
+    padding: 15px;
+    text-indent: 15px;
+    border-radius: 4px;
+}
+.content
+{
+    margin-top: 0;
+    margin-left: 190px;
+    padding: 20px;
+    height: auto;
+    overflow-y: auto;
+}
+.nav-center {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+nav div:hover
+{
+    color: white;
+    background-color: blue;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.active {
+    background-color: blue;
+    color: white;
+}
+.active:hover {
+    background-color: dodgerblue;
+}
+.logo
+{
+    width: 50px;
+    height: 50px;
+}
+.logo-dsh
+{
+    width: 90px;
+    height: 90px;
+    margin: 5px;
+}
+.nav {
+    display: inline;
+    width: 25px;
+    height: auto;
+    float: left;
+}
+.nav-home
+{
+    background: url("/images/layout-grid.png") left no-repeat;
+    background-size: 80%;
+}
+.btn-back
+{
+    margin: 5px;
+    padding: 20px;
+    background: url("/images/move-left.png") center no-repeat;
+    background-size: 80%;
+}
+.btn-add {
+    padding: 20px;
+    margin: 10px;
+    background: url("/images/plus.png") center no-repeat;
+    background-size: 80%;
+}
+.right {
+    position: absolute;
+    right: 15px;
+}
+
+.seat
+{
+    width: 80px;
+    border: none;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+}
+.reserved
+{
+    background-color: green;
+
+}
+input[type="text"], [type="email"], input[type="number"], input[type="date"], input[type="datetime-local"]
+{
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+}
+form
+{
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+button
+{
+    padding: 10px 20px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.left
+{
+    position: absolute;
+    left: 15px;
+}
+table, th, td, tr
+{
+    border-collapse: collapse;
+    padding: 12px;
+    text-align: left;
+    cursor: pointer;
+    text-align: center;
+    overflow-x:auto;
+}
+th {
+    background-color: #04AA6D;
+    color: white;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: dodgerblue;color: white;}  
+.card{
+    background: white;
+    padding: 12px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
+}
+hr{
+    border: 4px solid black;
+}
+.card-place 
+{
+    height: 80vh;
+    overflow-y: auto;
+    background: rgb(150, 208, 231);
+    border-radius: 5px;
+    width: 384px;
+    margin: 2px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding: 5px;
+}
+.card-form 
+{
+    height: 80vh;
+    overflow-y: auto;
+    background: rgb(11, 47, 61);
+    color: white;
+    border-radius: 5px;
+    width: 384px;
+    margin: 2px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding: 5px;
+}
+.card-detaille 
+{
+    background: rgb(18, 72, 80);
+    color: white;
+    border-radius: 5px;
+    width: 384px;
+    margin: 5px;
+    padding: 15px;
+    box-shadow: 0px 6px 20px rgba(10, 9, 9, 0.08);
+}

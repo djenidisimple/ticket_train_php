@@ -19,7 +19,9 @@ class Passenger extends Model
 
     public function getAllPassenger()
     {
-        return $this->getAll($this->table);
+        $stmt = $this->db->prepare("SELECT * FROM passenger GROUP BY name and firstName");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     /**
      * Get a passenger by ID from the database.
@@ -34,7 +36,7 @@ class Passenger extends Model
 
     public function addPassenger($data)
     {
-        return $this->insert($this->table, $data);
+        return $this->insertGetId($this->table, $data);
     }
 
     public function updatePassenger($id, $data)
@@ -44,6 +46,6 @@ class Passenger extends Model
 
     public function deletePassenger($id)
     {
-        return $this->delete($this->table, $id);
+        return $this->delete($this->table, $id, "passId");
     }
 }

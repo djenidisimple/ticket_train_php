@@ -19,6 +19,7 @@ class Controller
     */
    public function view($view, $data = []):void
    {
+        $data = $data;
        if (file_exists('../app/Views/' . $view . '.php')) {
            require_once '../app/Views/' . $view . '.php';
        } else {

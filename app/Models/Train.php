@@ -21,21 +21,39 @@ class Train extends Model
 
     public function getTrainById($id)
     {
-        return $this->getById($this->table, $id);
+        return $this->getById("trainbyroute", $id, "routeId");
+    }
+    
+    public function getTrainByIdEdit($id)
+    {
+        return $this->getById("train", $id, "trainId");
+    }
+
+    public function getNameTrainById($id)
+    {
+        return $this->getById("train", $id, "trainId");
+    }
+
+    public function getTrainByName($name)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM " . $this->table . " WHERE nameTrain = :name");
+        $stmt->bindParam(':name', $name);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function addTrain($data)
     {
-        return $this->insert($this->table, $data);
+        return $this->insertGetId($this->table, $data);
     }
 
-    public function updateTrain($id, $data)
+    public function updateTrain($data, $id)
     {
-        return $this->update($this->table, $data, $id);
+        return $this->update($this->table, $data, "trainId", $id);
     }
 
     public function deleteTrain($id)
     {
-        return $this->delete($this->table, $id);
+        return $this->delete($this->table, $id, "trainId");
     }
 }
