@@ -2,13 +2,29 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 body {
     background: #f0f0f0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
 }
 div label {
     font-size: 16px;
+}
+.icon-action {
+    width: 28px;
+    height: auto;
+    margin-left: 5px;
+}
+.icon-action:hover {
+    background-color: dodgerblue;
+    border-radius: 5px;
 }
 .text-show {
     font-size: 34px;
@@ -109,7 +125,7 @@ a {
 }
 .nav {
     display: inline;
-    width: 25px;
+    width: 18px;
     height: auto;
     float: left;
 }
@@ -153,7 +169,7 @@ a {
 }
 input[type="text"], [type="email"], input[type="number"], input[type="date"], input[type="datetime-local"]
 {
-    width: 250px;
+    width: 100%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -175,6 +191,9 @@ button
     border-radius: 5px;
     cursor: pointer;
 }
+.w-full {
+    width: 100%;
+}
 .center
 {
     display: flex;
@@ -187,17 +206,47 @@ button
     position: absolute;
     left: 15px;
 }
+.btn {
+    background-color: blue;
+    color: white;
+    background-size: 80%;
+    border-radius: 5px;
+    padding: 8px 20px;
+}
+.btn:hover {
+    background-color: dodgerblue;
+}
+table 
+{
+    width: 100%;
+}
+.p-sm {
+    padding: 5px;
+}
+.p-sm-10 {
+    padding: 10px;
+}
+.round-actif {
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+}
+.round-none {
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+}
 table, th, td, tr
 {
     border-collapse: collapse;
-    padding: 12px;
+    padding: 8px;
     text-align: left;
     cursor: pointer;
     text-align: center;
     overflow-x:auto;
 }
 th {
-    background-color: #04AA6D;
+    background-color: gray;
     color: white;
 }
 th, td {

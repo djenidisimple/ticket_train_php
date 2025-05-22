@@ -1,4 +1,7 @@
 <div class="content">
+    <img src="" alt="icon"> /
+    <span>Administration</span>
+    <br><br>
     <h1>Dashboard</h1>
     <div class="center">
         <div class="box center t-m">
