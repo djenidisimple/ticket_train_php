@@ -38,7 +38,10 @@
             </div>
         </div>
     <?php endif;?>
-    <form action="<?php echo $url;?>" method="post" style="width: 40%; margin: 0 auto;">
+    <form action="<?php echo $url;?>" method="post" style="width: 100%; margin: 0 auto;">
+        <div class="flex f-right">
+            <button class="btn-close" onclick="closeBox('#routeView')">&times;</button>
+        </div>
         <?php if (!empty($data['Route'])) :?>
         <h1 class="center">Modification de Trajet</h1>
         <?php else:?>
@@ -61,6 +64,6 @@
             <label for="reute_arrival">Date d'Arriver</label>
             <input type="datetime-local" name="date_arrival" id="route_arrival" value="<?php echo $dateArrival;?>" required>
         </div>
-        <button type="submit" class="btn btn-primary w-full p-sm-10">Envoyer</button>
+        <button type="submit" class="btn btn-primary w-full p-sm-10">Enregistrer</button>
     </form>
 </div>

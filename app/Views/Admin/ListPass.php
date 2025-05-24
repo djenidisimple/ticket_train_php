@@ -33,12 +33,14 @@
             <td><?php echo $value['Phone'];?></td>
             <td><?php echo $value['dateOfBirth'];?></td>
             <td>
-                <a href="/Ticket/Admin/PassDelete/<?php echo $value['passId'];?>">
+                <!-- href="/Ticket/Admin/PassDelete/<?php echo $value['passId'];?>" -->
+                <buttton onclick="openBox('#dialog')" type="button">
                     <img src="/images/trash-dark.png" alt="delete" class="icon-action">
-                </a>
-                <a href="/Ticket/Admin/PassEdit/<?php echo $value['passId'];?>">
+                </button>
+                <!-- href="/Ticket/Admin/PassEdit/<?php echo $value['passId'];?>" -->
+                <buttton onclick="openBox('#passView', '<?php echo $value['passId'];?>')" type="button">
                     <img src="/images/edit-dark.png" alt="edit" class="icon-action">
-                </a>
+                </button>
             </td>
         </tr>
         <?php
@@ -53,4 +55,15 @@
     <?php
         endif;
     ?>
+    <div class="fullscreen center" id="dialog" style="display: none;">
+        <div class="card center" style="width: 300px;margin: 15px auto;">
+            <h3>Voulez vous confirmer la suppression ?</h3> 
+            <button class="btn" style="margin: 5px" onclick="deleteValue('<?php echo $value['passId'];?>')">Oui</button>
+            <button class="btn" style="margin: 5px" onclick="cancelDelete()">Non</button>
+            <br>
+        </div>
+    </div>
+    <div class="fullscreen center" id="passView" style="display: none;">
+        <?php include_once '../app/Views/Admin/PassView.php';?>
+    </div>
 </div>

@@ -44,3 +44,9 @@ document.querySelectorAll('.btn-reserved').forEach(button => {
         });
     })    
 });
+const dialog = document.getElementById('dialog');
+function showDialog() {dialog.style.display = 'flex';}
+function deleteValue(value) { dialog.style.display = 'none'; }
+function cancelDelete() { dialog.style.display = 'none'; }
+function closeBox(value) { document.querySelector(value).style.display = 'none'; }
+function openBox(value, id = 0) { document.querySelector(value).style.display = 'flex'; }

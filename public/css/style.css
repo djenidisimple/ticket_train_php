@@ -167,7 +167,24 @@ a {
     background-color: green;
 
 }
-input[type="text"], [type="email"], input[type="number"], input[type="date"], input[type="datetime-local"]
+.flex {
+    display: flex;
+}
+.f-right {
+    margin-top: -15px;
+    margin-right: -15px;
+    justify-content: flex-end;
+}
+.btn-close {
+    float: right;
+    position: relative;
+    font-size: 15px;
+    background-color: red;
+}
+.btn-close:hover {
+    background-color: darkred;
+}
+input[type="text"], [type='tel'], [type="email"], input[type="number"], input[type="date"], input[type="datetime-local"]
 {
     width: 100%;
     padding: 10px;
@@ -215,6 +232,15 @@ button
 }
 .btn:hover {
     background-color: dodgerblue;
+}
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 table 
 {
