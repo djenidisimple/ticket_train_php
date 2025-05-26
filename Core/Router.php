@@ -41,7 +41,7 @@ class Router
             }
         } else if (count($url) == 3 && $url[1] == "Admin" && $url[2] == "RegisterRoute") {
             $controllerName = "RegisterRouteController";
-            $methodName = 'index';
+            $methodName = 'register';
         } else if (count($url) == 3 && $url[1] == "Admin" && $url[2] == "Reservation") {
             $controllerName = "ReservationController";
             $methodName = 'index';
@@ -52,15 +52,12 @@ class Router
             $controllerName = "RegisterReservationController";
             $methodName = ($url[2] == "RegisterReservation") ? 'index' : 'register';
         
-        } else if ((count($url) == 4 || count($url) == 5) && $url[1] == "Admin" && ($url[2] == "RDelete" || $url[2] == "TDelete" || $url[2] == "PassDelete" || $url[2] == "REdit" || $url[2] == "TEdit") && ( is_numeric($url[3]) || is_numeric($url[3]) && is_numeric($url[4]))) {
+        } else if ((count($url) == 3 || count($url) == 4) && $url[1] == "Admin" && ($url[2] == "RDelete" || $url[2] == "TDelete" || $url[2] == "PassDelete" || $url[2] == "REdit" || $url[2] == "TEdit")) {
             $controllerName = "DashboardController";
             $methodName = 'deleteRoute';
             if ($url[2] == "RDelete") {
-                $routeId = $url[3];
-                $route = new Route();
-                $route->deleteRoute($routeId);
-                header("Location: /Ticket/Admin/Reservation");
-                exit;
+                $controllerName = "DeleteData";
+                $methodName = 'deleteRoute';
             } else if ($url[2] == "TDelete") {
                 $trainId = $url[4];
                 $train = new Train();

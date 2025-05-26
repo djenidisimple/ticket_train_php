@@ -1,4 +1,4 @@
-let seatNumber = [], placeId = [], routeId = 1;
+let seatNumber = [], placeId = [], routeId = 1, id = 0;
 
 document.querySelectorAll('.seat').forEach(button => {
     button.addEventListener('click', function() {
@@ -45,8 +45,60 @@ document.querySelectorAll('.btn-reserved').forEach(button => {
     })    
 });
 const dialog = document.getElementById('dialog');
+const route_departure = document.getElementById('route_departure');
+const route_arrival = document.getElementById('route_arrival');
+const date_departure = document.getElementById('date_departure');
+const date_arrival = document.getElementById('date_arrival');
+function registerRoute() {
+    if (route_departure.value === '' || route_arrival.value === '' || date_departure.value === '' || date_arrival.value === '') {
+        alert('Veuillez remplir tous les champs.');
+        return;
+    } else {
+        fetch('/Ticket/Admin/RegisterRoute', {
+            method: 'POST',
+            headers: {
+                contentType: 'application/json'
+            },
+            body: JSON.stringify({ 
+                placeOfDeparture: route_departure.value, 
+                placeOfArrival: route_arrival.value, 
+                dateLeave: date_departure.value, 
+                dateArrived: date_arrival.value,
+            })
+        }).then(response => response.json())
+        .then(data => {
+            console.log(data.message); // Affiche le message envoyé par PHP
+            window.location.href = '/Ticket/Admin/Reservation'; // Redirige vers la page
+        })
+        .catch(error => {
+            console.error('Erreur AJAX :', error);
+        });
+    }
+}
 function showDialog() {dialog.style.display = 'flex';}
 function deleteValue(value) { dialog.style.display = 'none'; }
 function cancelDelete() { dialog.style.display = 'none'; }
 function closeBox(value) { document.querySelector(value).style.display = 'none'; }
-function openBox(value, id = 0) { document.querySelector(value).style.display = 'flex'; }
+function getConfirmation(value) {
+    document.querySelector(value).addEventListener('click', function(event) {
+        return true;
+    });
+    return false;
+}
+function openBox(value, id = 0) { 
+    document.querySelector(value).style.display = 'flex'; 
+    document.querySelector(value).value = id; 
+}
+function deleteDataRoute(id) {
+    fetch('/Ticket/Admin/RDelete/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: id.value })
+    }).then(response => response.json())
+    .then(data => {
+        console.log(data); // Affiche le message envoyé par PHP
+        window.location.href = '/Ticket/Admin/Reservation'; // Redirige vers la page
+    })
+}

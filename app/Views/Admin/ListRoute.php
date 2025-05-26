@@ -47,16 +47,10 @@
                 <?php endif;?>
             </td>
             <td>
-                <!-- <a href="/Ticket/Admin/RDelete/<?php echo $value['routeId'];?>">
-                    <img src="/images/trash-dark.png" alt="delete" class="icon-action">
-                </a> -->
-                <buttton onclick="openBox('#dialog', '<?php echo $value['routeId'];?>')" type="button">
+                <button onclick="openBox('#dialog', '<?php echo $value['routeId'];?>')" type="button" class="btn-action">
                     <img src="/images/trash-dark.png" alt="delete" class="icon-action">
                 </button>
-                <!-- <a href="/Ticket/Admin/REdit/<?php echo $value['routeId'];?>">
-                    <img src="/images/edit-dark.png" alt="edit" class="icon-action">
-                </a> -->
-                <buttton onclick="openBox('#routeView', '<?php echo $value['routeId'];?>')" type="button">
+                <button onclick="openBox('#routeView', '<?php echo $value['routeId'];?>')" type="button" class="btn-action">
                     <img src="/images/edit-dark.png" alt="edit" class="icon-action">
                 </button>
             </td>
@@ -76,7 +70,7 @@
     <div class="fullscreen center" id="dialog" style="display: none;">
         <div class="card center" style="width: 300px;margin: 15px auto;">
             <h3>Voulez vous confirmer la suppression ?</h3> 
-            <button class="btn" style="margin: 5px" onclick="deleteValue('<?php echo $value['routeId'];?>')">Oui</button>
+            <button class="btn" style="margin: 5px" id="confirmation" onclick="deleteDataRoute(document.getElementById('dialog'))">Oui</button>
             <button class="btn" style="margin: 5px" onclick="cancelDelete()">Non</button>
             <br>
         </div>

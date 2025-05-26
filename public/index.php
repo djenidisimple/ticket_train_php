@@ -8,6 +8,7 @@ require_once '../app/Controllers/Admin/ReservationController.php';
 require_once '../app/Controllers/Admin/TrainController.php';
 require_once '../app/Controllers/Admin/PlaceController.php';
 require_once '../app/Controllers/Admin/PassengerController.php';
+require_once '../app/Controllers/Admin/DeleteData.php';
 
 $home = null;
 $res = null;
@@ -17,7 +18,7 @@ $role = $router->get_url_currented();
 $url = $_SERVER['REQUEST_URI'];
 $url = trim($url, '/');
 $url = explode('/', $url);
-if(count($url) == 3 && $url[2] == "RegisterReservation") {
+if(count($url) == 3 && ($url[2] == "RegisterReservation" || $url[2] == "RegisterRoute") || $url[2] == "RDelete") {
     $router->route($_SERVER['REQUEST_URI']);
 } else {
     if(count($url) == 3 || count($url) == 4)

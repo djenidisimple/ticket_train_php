@@ -58,12 +58,12 @@
         </div>
         <div>
             <label for="route_departure">Date de Depart</label>
-            <input type="datetime-local" name="date_departure" id="route_departure" value="<?php echo $dateLeave;?>" required>
+            <input type="datetime-local" name="date_departure" id="date_departure" value="<?php echo $dateLeave;?>" required>
         </div>
         <div>
             <label for="reute_arrival">Date d'Arriver</label>
-            <input type="datetime-local" name="date_arrival" id="route_arrival" value="<?php echo $dateArrival;?>" required>
+            <input type="datetime-local" name="date_arrival" id="date_arrival" value="<?php echo $dateArrival;?>" required>
         </div>
-        <button type="submit" class="btn btn-primary w-full p-sm-10">Enregistrer</button>
+        <button type="button" class="btn btn-primary w-full p-sm-10" onclick="registerRoute()">Enregistrer</button>
     </form>
 </div>

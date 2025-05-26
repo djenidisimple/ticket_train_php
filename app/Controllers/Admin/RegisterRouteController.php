@@ -2,8 +2,21 @@
 require_once '../app/Models/Route.php';
 require_once '../Core/Controller.php';
 require_once '../Core/Form.php';
+require_once '../Core/Json.php';
 class RegisterRouteController extends Controller
 {
+    public function register() 
+    {
+        $json = new Json();
+        $data = $json->getData();
+        if ($data != null) {
+            $route = new Route();
+            $route->addRoute($data);
+            $json->sendData(['message' => 'Enregistrement réussi !']);
+        } else {
+            $json->sendData(['message' => 'Erreur : données invalides.']);
+        }
+    }
     public function index()
     {
         $error = $succes = null;

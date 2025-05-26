@@ -184,6 +184,12 @@ a {
 .btn-close:hover {
     background-color: darkred;
 }
+.btn-action {
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    padding: 0;
+}
 input[type="text"], [type='tel'], [type="email"], input[type="number"], input[type="date"], input[type="datetime-local"]
 {
     width: 100%;
