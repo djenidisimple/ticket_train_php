@@ -50,6 +50,41 @@ class RegisterRouteController extends Controller
         }
         $this->view('Admin/RouteView', ['Route' => "", "error" => $error, "succes" => $succes]);
     }
+    public function edit_get_value() 
+    {
+        $json = new Json();
+        $data = $json->getData();
+        $route = new Route();
+        $routeId = intval($data['id']);
+        if ($routeId > 0) {
+            $routeData = $route->getRouteById($routeId);
+            if ($routeData) {
+                $json->sendData(['message' => 'Route found', 'data' => $routeData]);
+            } else {
+                $json->sendData(['message' => 'Route not found']);
+            }
+        } else {
+            $json->sendData(['message' => 'Invalid route ID']);
+        }
+    }
+    public function edit_post_value() 
+    {
+        $json = new Json();
+        $data = $json->getData();
+        $route = new Route();
+        $routeId = intval($data['id']);
+        if ($routeId > 0) {
+            $routeData = $route->getRouteById($routeId);
+            if ($routeData) {
+                $route->updateRoute($routeId, $data['data']);
+                $json->sendData(['message' => 'Route updated successfully', 'data' => $route->getRouteById($routeId)]);
+            } else {
+                $json->sendData(['message' => 'Route not found']);
+            }
+        } else {
+            $json->sendData(['message' => 'Invalid route ID']);
+        }
+    }
     public function edit()
     {
         $erreur = null;

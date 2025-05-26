@@ -18,7 +18,7 @@ $role = $router->get_url_currented();
 $url = $_SERVER['REQUEST_URI'];
 $url = trim($url, '/');
 $url = explode('/', $url);
-if(count($url) == 3 && ($url[2] == "RegisterReservation" || $url[2] == "RegisterRoute") || $url[2] == "RDelete") {
+if(count($url) == 3 && ($url[2] == "RegisterReservation" || $url[2] == "RegisterRoute") || $url[2] == "RDelete" || $url[2] == "REdit" || $url[2] == "REditV" || $url[2] == "PEdit" || $url[2] == "PEditV" || $url[2] == "PDelete" || $url[2] == "TDelete" || $url[2] == "TEdit" || $url[2] == "TEditV" || $url[2] == "TAdd") {
     $router->route($_SERVER['REQUEST_URI']);
 } else {
     if(count($url) == 3 || count($url) == 4)

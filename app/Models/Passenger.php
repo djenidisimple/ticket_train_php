@@ -31,7 +31,7 @@ class Passenger extends Model
 
     public function getPassengerById($id)
     {
-        return $this->getById($this->table, $id);
+        return $this->getById($this->table, $id, "passId");
     }
 
     public function addPassenger($data)
@@ -41,7 +41,7 @@ class Passenger extends Model
 
     public function updatePassenger($id, $data)
     {
-        return $this->update($this->table, $data, $id);
+        return $this->update($this->table, $data, 'passId',$id);
     }
 
     public function deletePassenger($id)

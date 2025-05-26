@@ -1,10 +1,76 @@
 <?php
 require_once '../app/Models/Train.php';
+require_once '../Core/Json.php';
 require_once '../app/Models/TrainByRoute.php';
 require_once '../Core/Form.php';
 require_once '../Core/Controller.php';
 class RegisterTrainController extends Controller
 {
+    public function getValue () 
+    {
+        $json = new Json();
+        $data = $json->getData();
+        $train = new Train();
+        $trainId = intval($data['id']);
+        if ($trainId > 0) {
+            $trainData = $train->getTrainByIdEdit($trainId);
+            if ($trainData) {
+                $json->sendData(['message' => 'success', 'data' => $trainData]);
+            } else {
+                $json->sendError('Train not found');
+            }
+        } else {
+            $json->sendError('Invalid train ID');
+        }
+    }
+    public function postValue()
+    {
+        $json = new Json();
+        $data = $json->getData();
+        $train = new Train();
+        $trainId = intval($data['id']);
+        if ($trainId > 0) {
+            $resultat = $train->updateTrain($data['data'], $trainId);
+            if ($resultat) {
+                $json->sendData(['status' => 'success']);
+            } else {
+                $json->sendError(['status' => 'failed']);
+            }
+        }
+    }
+    public function addValue() 
+    {
+        $json = new Json();
+        $data = $json->getData();
+        $train = new Train();
+        $trainId = $train->addTrain($data['data']);
+        if ($trainId) {
+            $associa = new TrainByRoute();
+            $associa->add(['trainId' => $trainId, 'routeId' => $data['routeId']]);
+            $placeGen = new Place();
+            $placeGen->insertPlace();
+            $json->sendData(['status' => 'success', 'trainId' => $trainId]);
+        } else {
+            $json->sendError(['status' => 'failed']);
+        }
+    }
+    public function deleteValue()
+    {
+        $json = new Json();
+        $data = $json->getData();
+        $train = new Train();
+        $trainId = intval($data['id']);
+        if ($trainId > 0) {
+            $resultat = $train->deleteTrain($trainId);
+            if ($resultat) {
+                $json->sendData(['status' => 'success']);
+            } else {
+                $json->sendError(['status' => 'failed']);
+            }
+        } else {
+            $json->sendError('Invalid train ID');
+        }
+    }
     public function index()
     {
         $succes = $error = null;

@@ -52,31 +52,39 @@ class Router
             $controllerName = "RegisterReservationController";
             $methodName = ($url[2] == "RegisterReservation") ? 'index' : 'register';
         
-        } else if ((count($url) == 3 || count($url) == 4) && $url[1] == "Admin" && ($url[2] == "RDelete" || $url[2] == "TDelete" || $url[2] == "PassDelete" || $url[2] == "REdit" || $url[2] == "TEdit")) {
+        } else if ((count($url) == 3 || count($url) == 4) && $url[1] == "Admin" && ($url[2] == "RDelete" || $url[2] == "TDelete" || $url[2] == "PDelete" || $url[2] == "PEdit" || $url[2] == "PEditV" || $url[2] == "REdit" || $url[2] == "REditV" || $url[2] == "TEdit" || $url[2] == "TEditV" || $url[2] == "TAdd")) {
             $controllerName = "DashboardController";
             $methodName = 'deleteRoute';
             if ($url[2] == "RDelete") {
                 $controllerName = "DeleteData";
                 $methodName = 'deleteRoute';
             } else if ($url[2] == "TDelete") {
-                $trainId = $url[4];
-                $train = new Train();
-                $train->deleteTrain($trainId);
-                header("Location: /Ticket/Admin/R/" . $url[3]);
-                exit;
-            } else if ($url[2] == "PassDelete") {
-                $id = (int)$url[3]; 
-                $pass = new Passenger();
-                $pass->deletePassenger($id);
-                header("Location: /Ticket/Admin/Pass");
-            } else if ($url[2] == "REdit") {
-                $id = (int)$url[3]; 
-                $controllerName = "RegisterRouteController";
-                $methodName = "edit";
-            } else if ($url[2] == "TEdit") {
-                $id = (int)$url[3]; 
                 $controllerName = "RegisterTrainController";
-                $methodName = "edit";
+                $methodName = 'deleteValue';
+            } else if ($url[2] == "REdit") {
+                $controllerName = "RegisterRouteController";
+                $methodName = "edit_get_value";
+            } else if ($url[2] == "REditV") {
+                $controllerName = "RegisterRouteController";
+                $methodName = "edit_post_value";
+            } else if ($url[2] == "PEdit") {
+                $controllerName = "PassengerController";
+                $methodName = "getValue";
+            } else if ($url[2] == "PEditV") {
+                $controllerName = "PassengerController";
+                $methodName = "postValue";
+            } else if ($url[2] == "PDelete") {
+                $controllerName = "PassengerController";
+                $methodName = "deleteValue";
+            } else if ($url[2] == "TEdit") {
+                $controllerName = "RegisterTrainController";
+                $methodName = "getValue";
+            } else if ($url[2] == "TEditV") {
+                $controllerName = "RegisterTrainController";
+                $methodName = "postValue";
+            } else if ($url[2] == "TAdd") {
+                $controllerName = "RegisterTrainController";
+                $methodName = "addValue";
             } else {
                 echo "ID not provided.";
             }

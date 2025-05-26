@@ -33,12 +33,10 @@
             <td><?php echo $value['Phone'];?></td>
             <td><?php echo $value['dateOfBirth'];?></td>
             <td>
-                <!-- href="/Ticket/Admin/PassDelete/<?php echo $value['passId'];?>" -->
-                <buttton onclick="openBox('#dialog')" type="button">
+                <button onclick="Passenger.openBoxPass('#dialog', <?php echo $value['passId'];?>)" type="button" class="btn-action">
                     <img src="/images/trash-dark.png" alt="delete" class="icon-action">
                 </button>
-                <!-- href="/Ticket/Admin/PassEdit/<?php echo $value['passId'];?>" -->
-                <buttton onclick="openBox('#passView', '<?php echo $value['passId'];?>')" type="button">
+                <button onclick="Passenger.openBoxPass('#passView', '<?php echo $value['passId'];?>', true)" type="button" class="btn-action">
                     <img src="/images/edit-dark.png" alt="edit" class="icon-action">
                 </button>
             </td>
@@ -58,7 +56,7 @@
     <div class="fullscreen center" id="dialog" style="display: none;">
         <div class="card center" style="width: 300px;margin: 15px auto;">
             <h3>Voulez vous confirmer la suppression ?</h3> 
-            <button class="btn" style="margin: 5px" onclick="deleteValue('<?php echo $value['passId'];?>')">Oui</button>
+            <button class="btn" style="margin: 5px" onclick="Passenger.deleteDataPass(document.getElementById('dialog'))">Oui</button>
             <button class="btn" style="margin: 5px" onclick="cancelDelete()">Non</button>
             <br>
         </div>
