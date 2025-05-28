@@ -86,11 +86,11 @@ export function addDataTrain() {
     }).then(response => response.json())
     .then(data => {
         console.log('Données reçues :', data);
-        if (data['status'] === 'success') {
-            window.location.reload();
-        } else {
-            alert('Erreur lors de l\'ajout du trajet.');
-        }
+        // if (data['status'] === 'success') {
+        //     window.location.reload();
+        // } else {
+        //     alert('Erreur lors de l\'ajout du trajet.');
+        // }
     }).catch(error => {
         console.error('Erreur AJAX :', error);
     });

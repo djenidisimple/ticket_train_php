@@ -15,3 +15,6 @@
             include_once '../app/Views/includes/navbarAdmin.php';
         }
     ?>
+    <div class="content">
+        
+        <?php require_once '../app/Views/includes/menu.php';

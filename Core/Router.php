@@ -48,10 +48,12 @@ class Router
         } else if (count($url) == 3 && $url[1] == "Admin" && $url[2] == "Pass") {
             $controllerName = "PassengerController";
             $methodName = 'index';
-        } else if (count($url) == 3 && $url[1] == "Admin" && $url[2] == "RegisterReservation" || count($url) == 4 && $url[1] == "Admin" && $url[2] == "T" && is_numeric($url[3]) && $url == "Add") {
+        } else if ((count($url) == 6) && $url[1] == "Admin" && $url[2] == "R" && is_numeric($url[3]) && $url[4] == "T" && is_numeric($url[5])) {
             $controllerName = "RegisterReservationController";
-            $methodName = ($url[2] == "RegisterReservation") ? 'index' : 'register';
-        
+            $methodName = 'register';
+        } else if ((count($url) == 3) && $url[1] == "Admin" && $url[2] == "RegisterReservation") {
+            $controllerName = "RegisterReservationController";
+            $methodName = 'index';
         } else if ((count($url) == 3 || count($url) == 4) && $url[1] == "Admin" && ($url[2] == "RDelete" || $url[2] == "TDelete" || $url[2] == "PDelete" || $url[2] == "PEdit" || $url[2] == "PEditV" || $url[2] == "REdit" || $url[2] == "REditV" || $url[2] == "TEdit" || $url[2] == "TEditV" || $url[2] == "TAdd")) {
             $controllerName = "DashboardController";
             $methodName = 'deleteRoute';
@@ -124,5 +126,19 @@ class Router
         $url = trim($url, '/');
         $url = explode('/', $url);
         return (is_numeric($url[3])) ? $url[3] : null;
+    }
+    public static function get_id_url_array()
+    {
+        $url = $_SERVER['REQUEST_URI'];
+        $url = trim($url, '/');
+        $url = explode('/', $url);
+        return [ $url[3], $url[5] ];
+    }
+    public static function get_url()
+    {
+        $url = $_SERVER['REQUEST_URI'];
+        $url = trim($url, '/');
+        $url = explode('/', $url);
+        return $url;
     }
 }

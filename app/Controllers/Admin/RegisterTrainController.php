@@ -49,7 +49,7 @@ class RegisterTrainController extends Controller
             $associa->add(['trainId' => $trainId, 'routeId' => $data['routeId']]);
             $placeGen = new Place();
             $placeGen->insertPlace();
-            $json->sendData(['status' => 'success', 'trainId' => $trainId]);
+            $json->sendData(['status' => 'success', 'trainId' => $trainId, ]);
         } else {
             $json->sendError(['status' => 'failed']);
         }

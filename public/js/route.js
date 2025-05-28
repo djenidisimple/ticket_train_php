@@ -1,4 +1,5 @@
 import * as constants from "/js/constant.js";
+export { btn_submit } from "/js/constant.js";
 export function addDataRoute() {
     if (constants.route_departure.value === '' || constants.route_arrival.value === '' || constants.date_departure.value === '' || constants.date_arrival.value === '') {
         alert('Veuillez remplir tous les champs.');

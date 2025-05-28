@@ -1,6 +1,7 @@
 import * as Route from "/js/route.js";
 import * as Passenger from "/js/passenger.js";
 import * as Train from "/js/train.js";
+import * as Place from "/js/place.js";
 
 function showDialog() {
     dialog.style.display = 'flex';
@@ -23,11 +24,12 @@ function closeBox(value) {
 window.Route = Route;
 window.Passenger = Passenger;
 window.Train = Train;
+window.Place = Place;
 
-if (Passenger.btn_submit) {
-    Passenger.btn_submit.addEventListener('click', function() {
+if (Route.btn_submit) {
+    Route.btn_submit.addEventListener('click', function() {
         let title = document.querySelector('#title').textContent;
-        if (title === "Ajout d'un Trajet") {
+        if (title === "Ajout de nouvelle Trajet") {
             Route.addDataRoute();
         } else if (title === "Modification du Trajet") {
             Route.editDataRoute(document.querySelector('#routeView'));
@@ -51,6 +53,23 @@ if (Train.btn_train_submit) {
         }
     });
 }
+
+if (Place.seat) {
+    Place.seat.forEach(button => {
+        button.addEventListener('click', function() {
+            Place.coloredPlace.call(this); // Appelle la fonction pour colorer le siège
+        });
+    });
+}
+
+if (Place.btn_reserved) {
+    Place.btn_reserved.forEach(button => {
+        button.addEventListener('click', function() {
+            Place.addDataPlace.call(this); // Appelle la fonction pour ajouter les données de place
+        })    
+    });
+}
+
 
 window.closeBox = closeBox;
 window.showDialog = showDialog;

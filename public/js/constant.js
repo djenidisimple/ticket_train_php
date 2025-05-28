@@ -9,6 +9,8 @@ const btn_update = document.querySelector('#btn-update');
 const btn_train_submit = document.querySelector('#btn-train-submit');
 const nameTrain = document.querySelector('#train_name');
 const capacityTrain = document.querySelector('#train_capacity');
+const seat = document.querySelectorAll('.seat');
+const btn_reserved = document.querySelectorAll('.btn-reserved');
 export {
     route_departure,
     route_arrival,
@@ -20,5 +22,7 @@ export {
     btn_update,
     btn_train_submit,
     nameTrain,
-    capacityTrain
+    capacityTrain,
+    seat,
+    btn_reserved
 };

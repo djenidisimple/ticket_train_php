@@ -19,7 +19,7 @@ class Train extends Model
         return $this->getAll($this->table);
     }
 
-    public function getTrainByRouteId($trainId)
+    public function getTrainByRouteId(int $trainId)
     {
         $stmt = $this->db->prepare("SELECT * FROM train WHERE trainId = :trainId");
         $stmt->bindParam(':trainId', $trainId);
