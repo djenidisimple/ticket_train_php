@@ -97,4 +97,10 @@ class Model
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function count($table)
+    {
+        $stmt = $this->db->prepare("SELECT COUNT(*) as count FROM " . $table);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+    }
 }

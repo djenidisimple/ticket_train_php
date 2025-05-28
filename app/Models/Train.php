@@ -19,6 +19,11 @@ class Train extends Model
         return $this->getAll($this->table);
     }
 
+    public function countTrain()
+    {
+        return $this->count($this->table);
+    }
+
     public function getTrainByRouteId(int $trainId)
     {
         $stmt = $this->db->prepare("SELECT * FROM train WHERE trainId = :trainId");

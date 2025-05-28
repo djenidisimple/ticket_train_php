@@ -8,6 +8,16 @@ class Place extends Model
         parent::__construct();
     }
 
+    public function countPlace():int
+    {
+        $query = "SELECT COUNT(placeId) as nb FROM place WHERE EstDisponible = 0;";
+        $place = $this->getValue($query);
+        $places = [$place];
+        foreach ($places as $value) {
+            return (int) $place[0]["nb"];
+        }
+    }
+
     public function updatePlace(int $id):int
     {
         $query = "UPDATE place SET EstDisponible = 0 WHERE placeId = :placeId;";

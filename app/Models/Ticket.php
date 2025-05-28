@@ -40,4 +40,8 @@ class Ticket extends Model
     {
         return $this->delete($this->table, $id);
     }
+    public function countTicket()
+    {
+        return $this->count($this->table);
+    }
 }

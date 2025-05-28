@@ -23,6 +23,11 @@ class Route extends Model
         return $this->getAll($this->table);
     }
 
+    public function countRoute()
+    {
+        return $this->count($this->table);
+    }
+
     public function getRouteById($id)
     {
         return $this->getById($this->table, $id, "routeId");
